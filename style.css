@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box;
+}
+
+section {
+    border: 2px solid aquamarine;
+    height: 100vh;
+    width: 100%;
+}
+
+
+
+/* Section 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* Navbar */
+.navbar.navbar-custom {
+    background-color: transparent;
+}
+
+.navbar.navbar-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' width='30' height='30' fill='%23ffffff'%3e%3cpath stroke='rgba%28255%2c 255%2c 255%2c 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* rotate logo */
+.logo-container {
+    width: auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.logo {
+    width: 100px; /* Größe des Logos anpassen */
+    height: 100px;
+    animation: rotate 3s infinite; /* Animation hinzufügen */
+    transform-origin: center center; /* Achse des Logos auf Mitte setzen */
+  }
+
+  @keyframes rotate {
+    0% { transform: rotate3d(1, 0, 0, 0deg); }
+    100% { transform: rotate3d(1, 0, 1, 360deg); }
+  }
+
+/* Footer */
+.fa-arrow-down {
+    font-size: 3.5rem; /* Größe anpassen, z.B. 5rem */
+    animation: bounce 1s infinite; /* Animation hinzufügen */
+  }
+
+  @keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+    100% { transform: translateY(0); }
+  }
+
+/* Section 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.profilPic {
+    width: 50%;
+}
+
+/* Section 3 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Section 4 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.cardContainer > div > img {
+    height: 10rem;
+    width: 10rem;
+}
