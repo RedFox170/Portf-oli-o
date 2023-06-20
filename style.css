@@ -5,13 +5,9 @@
 section {
     border: 2px solid aquamarine;
     height: 100vh;
-    /* width: 100%; */
 }
 
-
-
 /* Section 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
 /* Navbar */
 .navbar.navbar-custom {
     background-color: transparent;
@@ -20,7 +16,9 @@ section {
 .navbar.navbar-custom .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' width='30' height='30' fill='%23ffffff'%3e%3cpath stroke='rgba%28255%2c 255%2c 255%2c 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
-
+.nav-item .active {
+  text-decoration: underline;
+}
 /* rotate logo */
 .logo-container {
     width: auto;
@@ -31,39 +29,399 @@ section {
   }
 
 .logo {
-    width: 100px; /* Größe des Logos anpassen */
+    width: 100px; 
     height: 100px;
-    animation: rotate 3s infinite; /* Animation hinzufügen */
+    animation: rotate 3s infinite; 
     transform-origin: center center; /* Achse des Logos auf Mitte setzen */
   }
-
   @keyframes rotate {
     0% { transform: rotate3d(1, 0, 0, 0deg); }
     100% { transform: rotate3d(1, 0, 1, 360deg); }
   }
 
-/* Footer */
+/* Arrow */
 .fa-arrow-down {
-    font-size: 3.5rem; /* Größe anpassen, z.B. 5rem */
-    animation: bounce 1s infinite; /* Animation hinzufügen */
+    font-size: 3.5rem; 
+    animation: bounce 1s infinite; 
   }
-
+  .fa-arrow-up {
+    font-size: 3.5rem; 
+    animation: bounce 1s infinite; 
+  }
   @keyframes bounce {
     0% { transform: translateY(0); }
     50% { transform: translateY(-9px); }
     100% { transform: translateY(0); }
   }
 
-/* Section 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Contact */
 
-.profilPic {
-    width: 50%;
+.modal-content {
+  background-color: #4d4d4dc5 !important;
 }
 
-/* Section 3 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-/* Section 4 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* colormode */
+/* form geben */
+.colortoggle {
+  width:500px;
+  height:200px;
+  position: relative;
+  display: block;
+  background: #ebebeb;
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+  cursor: pointer;
+}
+/* knopf */
+.colortoggle:after {
+  content: "";
+  width:180px;
+  height: 180px;
+  position: absolute;
+  top:10px;
+  left:10px;
+  background: linear-gradient(180deg,#ffcc89,#d8860b);
+  border-radius: 180px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+/* animation */
+input:checked + .colortoggle {
+  background: #242424;
+}
+input:checked + .colortoggle:after {
+  left:490px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg,#777,#3a3a3a);
+}
+.colortoggle, .colortoggle:after {
+  transition: 0.3s
+}
+.colortoggle:active:after{ 
+  width: 260px; 
+}
+/* funktion */
+input:checked + .colortoggle + .gradient {
+  display: block;
+}
+
+/* Section 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.grid-con {  
+  display: grid;
+  height: 100%;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 1fr .3fr .4fr;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "header"
+    "pic"
+    "text"
+    "hobby";
+}
+
+.header { 
+  grid-area: header; 
+  padding-top: 4rem;
+  text-align: center;
+}
+
+.pic { 
+  grid-area: pic;
+  padding: .5rem 2rem 0.5rem 2rem;}
+
+.profilPic {
+  max-width: 100%;
+  height: auto;
+  }
+
+.text { 
+  grid-area: text;
+  font-size: .8rem;
+  background-color: #7a77775b;
+  padding: .5rem 1rem 0.5rem 1rem;
+  border-radius: 10px;
+  margin: 0 1rem 0 1rem;
+ }
+
+.hobby { 
+  grid-area: hobby;
+  background-color: #7a77775b;
+  font-size: .8rem;
+  padding: .5rem 1rem 0.5rem 1rem;
+  border-radius: 10px;
+  margin: 0 1rem 0 1rem; 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-height: 4rem;
+  max-height: 6rem;
+}
+
+
+@media (min-width: 992px) {
+  .grid-con {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 0.8fr 0.5fr 1fr 1fr 0.3fr 2fr 1fr;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 2px 2px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . . ."
+      ". header header ."
+      ". . . ."
+      "text text pic pic"
+      "text text pic pic"
+      ". . . ."
+      "hobby hobby . ."
+      ". . . .";
+  }
+  
+  .header { grid-area: header; }
+  
+  .text { grid-area: text; }
+  
+  .pic { grid-area: pic; }
+  
+  .skill { grid-area: skill; }
+  
+  .hobby { grid-area: hobby; }
+
+  .text { 
+    grid-area: text;
+    font-size: 1.2rem;
+    background-color: #5c5a5a76;
+    padding: .5rem 1rem 0.5rem 1rem;
+    border-radius: 10px;
+    margin: 0 1rem 0 1rem;
+   }
+
+   .hobby { 
+    grid-area: hobby;
+    background-color: #5c5a5a76;
+    font-size: 1.2rem;
+    padding: .5rem 1rem 0.5rem 1rem;
+    border-radius: 10px;
+    margin: 0 1rem 0 1rem; 
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 6rem;
+    max-height: 8rem;
+  }
+}
+
+
+/* Section 3 ~~~~~~~~~~~~~~~~~~~Grid ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.sec3-con {
+  margin-top: 12rem;
+}
+
+.edu-card {
+  width: 18rem;
+  height: 3rem;
+  background-color: #7a77775b;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  margin: 20px;
+  color: black;
+  box-shadow: 0px 5px 20px #1915132f, 0px 5px 20px #242424;
+  transition: all ease 0.5s;
+}
+.edu-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 15px 30px #000000a7;
+}
+.edu-card h4 {
+  color: #fff;
+  text-shadow: 5px 5px 4px rgba(51, 0, 0, 1);
+}
+.edu-card p {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  text-shadow: 5px 5px 4px rgba(51, 0, 0, 1);
+}
+
+.edu-groupBx {
+  background-color: #3c3d3d;
+  box-shadow: inset 5px 5px 20px #4a4a4a, inset 5px 5px 20px #fff;
+}
+
+.wor-card {
+  width: 18rem;
+  height: 3rem;
+  background-color: #7a77775b;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  margin: 20px;
+  color: black;
+  box-shadow: 0px 5px 20px #1915132f, 0px 5px 20px #242424;
+  transition: all ease 0.5s;
+}
+.wor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 15px 30px #000000a7;
+}
+.wor-card h4 {
+  color: #fff;
+  text-shadow: 5px 5px 4px rgba(51, 0, 0, 1);
+}
+.wor-card p {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  text-shadow: 5px 5px 4px rgba(51, 0, 0, 1);
+}
+
+
+
+@media (min-width: 576px) {
+  .edu-card {
+    width: 12rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .wor-card {
+    width: 12rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .edu-card {
+    width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+ 
+  .wor-card {
+    width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 992px) {
+  .edu-card {
+    width: 20rem;
+    height: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .edu-card p {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+    text-shadow: 5px 5px 4px rgba(51, 0, 0, 1);
+  }
+ 
+  .wor-card {
+    width: 20rem;
+    height: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .wor-card p {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+    text-shadow: 5px 5px 4px rgba(51, 0, 0, 1);
+  }
+}
+ 
+/* Section 4 ~~~~~~~~~~~~~~~~~~FlexBox~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+.wassolldass {
+  background-color: #7a77775b;
+  width: 8rem;
+  height: 13rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  margin: 20px;
+  color: black;
+  box-shadow: 0px 5px 20px #1915132f, 0px 5px 20px #242424;
+  transition: all ease 0.5s;
+}
+
+.wassolldass:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 15px 30px #000000a7;
+}
+
+.sec4-h4 {
+  font-size: 1rem;
+}
+.card-body p {
+  font-size: .8rem;
+}
+
+.cardContainer {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1rem;
+  margin-top: 5rem;
+  background-color: #003b4d00;
+}
+
+
+.card_content {
+  height: 100%;
+  height: 100%;
+  background-color: #5c5a5a76;
+  box-shadow: none;
+  background-size: cover;
+  background-position: center;
+}
 
 .cardContainer > div > img {
-    height: 10rem;
-    width: 10rem;
+    width: 100%;
+    height: 8rem;
+}
+
+@media (min-width: 768px) {
+  .wassolldass {
+    width: 12rem;
+    height: 16rem;   
+  }
+ .card-body > h4 {
+  font-size: .5remrem;
+ }
+}
+@media (min-width: 992px) {
+  .wassolldass {
+    width: 14rem;
+    height: 18rem;   
+  }
 }

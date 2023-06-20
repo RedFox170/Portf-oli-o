@@ -1,5 +1,13 @@
+body {
+    text-shadow: #FA7268 1px 0 10px;
+}
+p {
+    color: bisque;
+}
+
 h1 {
     text-shadow: #FA7268 1px 0 10px;
+    
 }
 
 h2 {
@@ -12,4 +20,24 @@ h3 {
 
 h4 {
     text-shadow: #FA7268 1px 0 10px;
+    color: rgb(245, 244, 241);
+}
+
+.modal-title {
+    text-shadow: #FA7268 1px 0 10px;
+    color: rgb(245, 244, 241);
+}
+
+label {
+    color: white;
+}
+
+.sec3-h2 {
+    font-size: 2.7rem;
+    text-shadow: 5px 5px 4px rgb(84, 84, 84);
+}
+
+.sec3-h4 {
+    font-size: 1.7rem; 
+    text-shadow: 5px 5px 4px rgba(51, 0, 0, 1);
 }

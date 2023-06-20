@@ -29,31 +29,51 @@
     100%{background-position:0% 50%}
 } */
 
-.section-1 {
+/* colormode */
+/* .gradient {
+    width:100vw;
+    height: 100vh;
+    z-index: -1;
+    position: absolute;
+    transition: 0.3s;
+    background: linear-gradient(37deg, #fcf6b1, #4ecdc4);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    -o-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+} */
+
+/* sections */
+
+.bg-dark-1 {
     background-image: url(img/bg-1.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
 }
 
-.section-2 {
+.bg-dark-2 {
     background-image: url(img/bg-2.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
 }
 
-.section-3 {
-    /* background-image: url(img/background-3.svg); */
+.bg-dark-3 {
     background-image: url(img/bg-3.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
 }  
 
-.section-4 {
+.bg-dark-4 {
     background-image: url(img/bg-41.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
 }
+
+
+
